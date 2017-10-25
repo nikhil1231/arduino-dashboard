@@ -17,9 +17,9 @@ $(document).ready(function(){
     });
 
     var tempRef = firebase.database().ref('temp/');
-    potRef.on('value', function(snapshot) {
+    tempRef.on('value', function(snapshot) {
         var tempReading = snapshot.val().data;
-        $('.temp-value').html(tempReading);
+        $('.temp-value').html(tempReading + " C");
         console.log(potReading)
     });
 })
