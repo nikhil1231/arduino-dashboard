@@ -15,4 +15,11 @@ $(document).ready(function(){
         $('.pot-value').html(potReading);
         console.log(potReading)
     });
+
+    var tempRef = firebase.database().ref('temp/');
+    potRef.on('value', function(snapshot) {
+        var tempReading = snapshot.val().data;
+        $('.temp-value').html(tempReading);
+        console.log(potReading)
+    });
 })
