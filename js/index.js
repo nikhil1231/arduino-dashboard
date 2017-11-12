@@ -100,6 +100,7 @@ $(document).ready(function(){
         }
     })
 
+    // Formatting the dropdown menu for the graphs
     var ldrData = [];
     $(".dropdown-menu li a").click(function(){
         var selText = $(this).text();
@@ -107,6 +108,7 @@ $(document).ready(function(){
         updateGraph($(this).attr('class'),$(this).attr('id'));
     });
 
+    // Update graph every time value on the server changes
     function updateGraph(type,period,second=false){
         var ldrRef = firebase.database().ref('ldr_'+period+'/data/');
         var ldrArr;
@@ -178,6 +180,7 @@ $(document).ready(function(){
     });
 })
 
+// return energy, optionally formatted
 function getEnergy(num, power, secs, formatted){
     var e = num * power * secs / 100;
     var units = ['','k','M','G','T','P','E'];
